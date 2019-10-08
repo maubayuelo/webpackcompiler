@@ -1,0 +1,110 @@
+.tags_section{
+    border-top: none;
+    @include media-breakpoint-up(lg) {
+      border-top: #F2F2F2 solid 1px;
+    }
+    .badge {
+     font-size: 11px;
+     line-height: 12px;
+     margin: 9.33333px 0 0;
+     -webkit-transition: color 0.25s ease-in-out;
+     transition: color 0.25s ease-in-out;
+     -webkit-transition: background 0.2s ease-in-out;
+     transition: background 0.2s ease-in-out;
+     border: #F2F2F2 solid 1px;
+     &:hover {
+       color: #353838;
+       background: #fff;
+    }
+  }
+}
+
+  footer {
+  background: $c-black;
+  color: $c-white;
+  position: relative;
+  z-index: unset;
+  @include media-breakpoint-up(lg) {
+    z-index: 500;
+  }
+
+
+  .container {
+    margin-top: 0;
+  }
+
+  .menu {
+    margin-left: auto;
+    margin-right: auto;
+    list-style: none;
+    display: none;
+    @include media-breakpoint-up(lg) {
+      display: block;
+    }
+
+    li {
+      display: inline-block;
+      width: fit-content;
+
+      a {
+        transition: all 0.2s ease-in-out;
+
+        &:link,
+        &:visited {
+          color: $c-white;
+          margin: 0 10px;
+        }
+
+        &:hover {
+          opacity: 0.5;
+        }
+      }
+    }
+  }
+
+  .logo-set {
+    margin: 0;
+    @include media-breakpoint-up(md) {
+      margin: $m-small;
+    }
+
+    li {
+      display: inline-block;
+      width: fit-content;
+
+      a {
+        transition: all 0.2s ease-in-out;
+
+        &:link,
+        &:visited {
+          color: $c-white;
+          margin: 0 10px;
+          width: fit-content;
+          height: fit-content;
+          max-height: 30px;
+          @include media-breakpoint-up(md) {
+            max-height: 50px;
+          }
+          display: block;
+
+          img {
+            max-height: 30px;
+            @include media-breakpoint-up(md) {
+              max-height: 50px;
+            }
+          }
+        }
+
+        &:hover {
+          opacity: 0.5;
+        }
+      }
+    }
+  }
+}
+
+
+
+.listing-card .bar_casa_2{
+  background: pink !important;
+}

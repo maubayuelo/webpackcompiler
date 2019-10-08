@@ -1,0 +1,72 @@
+/* --------------------------------
+Title: Default Page Styles
+-------------------------------- */
+.default-page, .product-page-content{
+  .container{
+    background-color: $c-white !important;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    align-content: stretch;
+    padding-right: 40px;
+    padding-left: 40px;
+    @include media-breakpoint-up(lg) {
+      flex-direction: row;
+    }
+    h1{
+      line-height: 1em;
+    }
+    .description-traffic{
+      padding-top: $lh-base/2;
+    }
+    img{
+      border-radius: 4px;
+    }
+    .text-medium{
+      margin-top: $lh-base*1.15;
+      margin-bottom: $lh-base*0.5;
+    }
+    .border{
+      border-radius: 4px;
+      border:none;
+    }
+    div[class*=col-]{
+      min-height: 1px;
+      width: 100%;
+    }
+    .col-main{
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    .col-side{
+      max-width: 100%;
+      display: none;
+      @include media-breakpoint-up(lg) {
+        display: block;
+      }
+      @include media-breakpoint-up(sm) {
+        max-width: 200px;
+      }
+      margin-right: 50px;
+    }
+    .col-med{
+      width: 100%;
+      max-width: 100%;
+      @include media-breakpoint-up(lg)  {
+        max-width: 700px;
+      }
+    }
+    .col-last{
+      max-width: 100%;
+      @include media-breakpoint-up(sm) {
+        max-width: calc(100% - 900px);
+      }
+      min-width: 160px;
+      margin-left: 50px;
+      //display: none;
+      @include media-breakpoint-up(lg) {
+        //display: unset;
+      }
+    }
+  }
+}

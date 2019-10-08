@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en" id="html_element">
+
+<head>
+  {#  Google Tag Manager #}
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-NF8HSM');
+  </script>
+  {# End Google Tag Manager #}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+    {% block metas %}
+        {% include 'partials/meta-title.html.twig' %}
+        {% include 'partials/meta-description.html.twig' %}
+        {% if content.fields.robots is defined %}
+            {% include 'partials/robots.html.twig' %}
+        {% endif %}
+        {% include 'partials/canonical.html.twig' %}
+    {% endblock %}
+
+    <link rel="shortcut icon" href="{{ absolute_url('/favicon.ico')|replace({'http://': 'https://'}) }}">
+  {% block stylesheets %}
+    {% stylesheets '@base_css' filter='?uglifycss' filter='cssrewrite' %}
+        <link rel="stylesheet" href="{{ absolute_url( asset_url )|replace({'http://': 'https://'}) }}?v=2.0.8" />
+    {% endstylesheets %}
+  {% endblock %}
+
+
+    <script src="https://api.rabbits.webcam/js/kraken.js"></script>
+
+    {% javascripts '@base_js' filter='?uglifyjs2' %}
+  <script src="{{ absolute_url( asset_url )|replace({'http://': 'https://'}) }}?v=2.0.8"></script>
+    {% endjavascripts %}
+</head>
+
+<body id="body_element">
+  {# Google Tag Manager (noscript) #}
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NF8HSM"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  {# End Google Tag Manager (noscript) #}
+{% include 'partials/header.html.twig' %}
+
+  {% block content %}
+  {% endblock %}
+
+    {# Footer Category Navigation links #}
+    {{ render( controller( "AppBundle:Navigation:getAllCategories" ) ) }}
+
+{% include 'partials/footer.html.twig' %}
+
+
+    {% if content.contentType.identifier != "site" %}
+        <a href="#" class="cd-top text--replace js-cd-top">Top</a>
+    {% else %}
+        <a href="#" class="cd-top cd-top-site text--replace js-cd-top">Top</a>
+    {% endif %}
+
+    {%  include 'partials/kraken.html.twig' %}
+    <script> window._peq = window._peq || []; window._peq.push(["init"]); </script>
+    <script src="https://clientcdn.pushengage.com/core/e180faa7593bac10f0938d7a538fe909.js" async></script>
+
+  {% block cookiePolicyJs %}
+  {% endblock %}
+  <script src="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js" data-cfasync="false"></script>
+  <script>
+      var p;
+      var gaProperty = 'UA-51881746-1';
+      var disableStr = 'ga-disable-' + gaProperty;
+      var necessaryCookies = [
+          'u',
+          'PHPSESSID',
+          'cookie_optout'
+      ];
+      window.cookieconsent.initialise({
+            layout: 'my-cool-layout',
+            layouts: {
+                'my-cool-layout': '\{\{message\}\}\{\{compliance\}\}'
+            },
+            "palette": {
+                "popup": {
+                    "background": "#1e1e1e",
+                    "text": "#ffffff"
+                },
+                "button": {
+                    "background": "#EF3024",
+                    "text": "#f9f9f9",
+                    "border": "#EF3024"
+                }
+            },
+            "content": {
+                "message": "We use cookies for a variety of site operations and for the purpose of continuous improvement. Our <a href=\"https://www.topchats.com/privacy/\" target=\"_blank\" class=\"cookie-terms-css\">cookie policy</a> provides more information and choices about our cookie use. By using the website you agree to our use of cookies."
+            },
+            onRevokeChoice: function () {
+                /* reset cookie consent settings */
+            },
+            onPopupClose: function(status) {
+                /* removes class padding on footer when user consent to cookies */
+                var footer = (document.body.contains(document.getElementsByClassName("section splash-how-we-work")[0])) ? document.getElementsByClassName("section splash-how-we-work")[0] : document.getElementsByClassName("footer-div")[0];
+                if (footer !== undefined && footer) {
+                    footer.classList.remove("cookie-consent-extra-padding");
+                }
+            },
+            onPopupOpen: function(status) {
+                var footer = (document.body.contains(document.getElementsByClassName("section splash-how-we-work")[0])) ? document.getElementsByClassName("section splash-how-we-work")[0] : document.getElementsByClassName("footer-div")[0];
+                if (footer !== undefined && footer) {
+                    footer.classList.add("cookie-consent-extra-padding");
+                }
+            }
+      },
+      function (popup) {
+          p = popup;
+      }, function (err) {
+          console.error(err);
+      });
+
+      /* removes cookies from site - exceptions is an array of cookies to keep */
+      function deleteCookies(exceptions) {
+          var theCookies = document.cookie.split(';');
+          for (var i = 0 ; i < theCookies.length; i++) {
+              var cookieName = theCookies[i].substr(0, theCookies[i].indexOf('=')).trim();
+              if (!exceptions.includes(cookieName)) {
+                  document.cookie = theCookies[i].split('=')[0] + '=; path=/; expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+              }
+          }
+      }
+
+      /* Make sure that the GA is disable if user said no tracking */
+      if (document.cookie.indexOf(disableStr + '=true') > -1) {
+          window[disableStr] = true;
+      }
+
+      function disableGACookies() {
+          document.cookie = disableStr + '=true; expires=Thu, 31 Dec 2099 23:59:59 UTC; path=/';
+          window[disableStr] = true;
+      }
+
+  </script>
+  <script id="__bs_script__">//<![CDATA[
+    document.write("<script async src='http://HOST:3000/browser-sync/browser-sync-client.js?v=2.26.7'><\/script>".replace("HOST", location.hostname));
+//]]></script>
+</body>
+</html>

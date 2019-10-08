@@ -1,0 +1,193 @@
+/* --------------------------------
+Title: Product Page Styles
+-------------------------------- */
+.product-page-content{
+  .product-title-section{
+    top:49px;
+    z-index: 100;
+    position: sticky;
+    @include media-breakpoint-up(lg) {
+      width: 100%;
+      .container{
+        transition: border-bottom ease-in 0.5s;
+        transition: top ease-in 0.2s;
+        border-bottom: 1px solid $c-white;
+      }
+    }
+    &.sticky{
+      @include media-breakpoint-up(lg) {
+        .container{
+          border-bottom: 1px solid $c-gray-light;
+        }
+      }
+    }
+  }
+  .container{
+    .col-side{
+      .rate-cont{
+        text-align: right;
+        padding-right: 0;
+        float: right;
+      }
+      .col-side-nav{
+        position: sticky;
+        top:300px;
+        border-right: 5px solid $c-gray-light;
+        padding-right: 15px;
+        width: 100%;
+        .text-medium{
+          line-height: 1.5em;
+        }
+        .side_nav{
+          margin-top: $lh-base/1.5;
+          list-style: none;
+          li{
+            transition: border-right ease-in 0.3s;
+            border-right: 5px solid $c-gray-light;
+            margin: 0;
+            margin-right: -20px;
+            padding-right: 20px;
+            line-height: 18px;
+            font-size: 14px;
+            margin-bottom: 22px;
+            a:link, a:visited{
+              transition: color ease-in 0.3s;
+              color: $c-gray;
+            }
+            a:hover{
+              text-decoration: underline;
+            }
+            &.active{
+              border-right: 5px solid $c-primary;
+              a:link, a:visited{
+                color: $c-primary;
+              }
+            }
+          }
+        }
+      }
+    }
+    .col-med{}
+    .col-last{}
+    .cta-box{
+      transition: bottom ease-in 0.25s;
+      transition: opacity ease-in 1s;
+      box-shadow: 0 0 3px rgba($c-black, 0.3);
+      margin: 0 0 0 auto;
+      padding: 10px;
+      min-width: 300px;
+      width: 100%;
+      border-radius: 0;
+      position: fixed;
+      max-width: 100%;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      align-content: stretch;
+      background: $c-white;
+      justify-content:center;
+      visibility: visible;
+      max-height: 55px;
+      bottom: -60px;
+      opacity: 0;
+      right: 0;
+
+      @include media-breakpoint-up(lg) {
+        visibility: hidden;
+        border-radius: 4px 4px 0 0;
+        max-width: fit-content;
+        z-index: unset;
+        right: unset;
+      }
+
+      .logo-co{
+        max-width: 140px;
+        max-height: 31px;
+        width: 100%;
+      }
+      &.visible{
+        transition: opacity ease-in 1s;
+        transition: bottom ease-in 0.25s;
+        bottom: 0;
+        visibility: visible;
+        opacity: 1;
+      }
+    }
+    .button-visit{
+      width: 100%;
+      font-size: 12px;
+      letter-spacing: 1px;
+      font-weight: 700;
+      background-color: $c-warning;
+      color: $c-black;
+      &:hover{
+        background-color: $c-black;
+        color: $c-white;
+      }
+      &-top{
+        line-height: $lh-base;
+        width: 100%;
+        display: none;
+        @include media-breakpoint-up(lg) {
+          display:block;
+        }
+      }
+      &-bottom{
+        width: 100%;
+        margin-left: 10px  !important ;
+        min-width: 130px;
+        left: calc(100% - 100px);
+        max-width: fit-content;
+      }
+    }
+  }
+  .cta-box-cont{
+    display: flex;
+    flex-direction: row;
+    justify-content:flex-end;
+    width: 100%;
+    min-height: 1px;
+    background-color: red;
+  }
+}
+
+.sticky{
+  .product-title-section{
+    .container{
+      border-bottom: 1px solid $c-gray-light;
+    }
+  }
+}
+
+/* --- Orphan Page Notification --- */
+.orphan_notification_cont {
+  max-width: 600px !important;
+  .orphan_notification_msn{
+    max-width: 600px;
+    border-radius: 4px;
+    border-width: 2px;
+    border-style: solid;
+    border-color: $c-warning;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+    .orphan_notification_msn_symbol{
+      display: block;
+      width: 100%;
+      max-width: 45px;
+      margin-right: 20px;
+    }
+    .orphan_notification_msn_text{
+      line-height: 1.5em;
+      font-size: 0.75em;
+      @include media-breakpoint-up(lg) {
+        font-size: 1em;
+      }
+    }
+  }
+  .button span{
+    line-height: 26px;
+  }
+}

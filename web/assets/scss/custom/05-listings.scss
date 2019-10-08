@@ -1,0 +1,495 @@
+.list-title {
+  text-align: center;
+  @include media-breakpoint-up(lg) {
+    text-align: left;
+  }
+}
+.listing-card-cont {
+  align-items: center;
+  justify-content: center;
+
+  .listing-card {
+    border-radius: 12px;
+    background: $c-white;
+    margin-right: 12px;
+    margin-left: 12px;
+    margin-bottom: $lh-base;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    padding: 0 0 $lh-base;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, .10);
+    width: 100%;
+    max-width: 330px;
+    @include media-breakpoint-up(lg) {
+      border-radius: 4px;
+      overflow: hidden;
+      width: 100%;
+      max-width: 100%;
+      max-height: 145px;
+      margin-bottom: 22px;
+      justify-content: space-between;
+      flex-direction: row;
+      padding: 0;
+      box-shadow: 0 0 5px rgba(0, 0, 0, .16);
+    }
+    &-top {
+      border: 2px solid $c-warning;
+    }
+
+    &-pic-area {
+      position: relative;
+      /* If you want text inside of it */
+      background: $c-black;
+      display: flex;
+      flex-direction: column;
+      flex-wrap: nowrap;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      height: 100%;
+      min-height: 200px;
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
+      @include media-breakpoint-up(lg) {
+        width: 20%;
+        min-height: unset;
+        border-radius: 0;
+        border-top-left-radius: 4px;
+        border-bottom-left-radius: 4px;
+      }
+
+      img {
+        object-fit: cover;
+        width: 100%;
+        min-height: 250px;
+        transition: opacity 0.2s ease-in-out;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        @include media-breakpoint-up(lg) {
+          height: 100%;
+          min-height: unset;
+          border-radius: 0;
+          border-top-left-radius: 4px;
+          border-bottom-left-radius: 4px;
+        }
+        @include media-breakpoint-up(xl) {
+          margin-top: 15px;
+        }
+      }
+
+      &:hover {
+        img {
+          opacity: 0.7;
+        }
+      }
+    }
+
+    &-top {
+      .listing-card {
+        &-pic-area {
+          border-radius: 0;
+          border-top-left-radius: 10px;
+          border-top-right-radius: 10px;
+          @include media-breakpoint-up(lg) {
+            border-radius: 0;
+            border-top-left-radius: 2px;
+            border-bottom-left-radius: 2px;
+          }
+
+          img {
+            border-radius: 0;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+            @include media-breakpoint-up(lg) {
+              border-radius: 0;
+              border-top-left-radius: 2px;
+              border-bottom-left-radius: 2px;
+            }
+          }
+        }
+      }
+    }
+
+    .listing-ribbon {
+      height: 20px;
+      display: flex;
+      flex-direction: column;
+      flex-wrap: nowrap;
+      justify-content: center;
+      align-items: center;
+      position: absolute;
+      top: $lh-huge;
+      z-index: 10;
+      right: -10px;
+      letter-spacing: 1px;
+      font-weight: 700;
+      color: $c-white;
+      padding: 0 10px;
+      text-align: right;
+      border: 10px solid $c-primary;
+      /* All borders set */
+      border-right: 0;
+      /* Remove left border */
+      border-left: 7px solid transparent;
+      /* Right transparent */
+      width: fit-content;
+      /* Increase element Width */
+      min-width: 90px;
+      box-shadow: 2px 1px 3px -1px rgba(0, 0, 0, 0.5);
+
+      &:after {
+        content: " ";
+        display: inline-block;
+        z-index: 30;
+        position: absolute;
+        right: 0;
+        bottom: -20px;
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 10px 10px 0 0;
+        border-color: $c-secondary transparent transparent transparent;
+      }
+
+      &-fav {
+        border: 10px solid $c-blue;
+        /* All borders set */
+        border-right: 0;
+        /* Remove left border */
+        border-left: 7px solid transparent;
+        /* Right transparent */
+        &:after {
+          border-color: $c-black transparent transparent transparent;
+        }
+      }
+
+      &-trend {
+        color: $c-black;
+        border: 10px solid $c-green;
+        /* All borders set */
+        border-right: 0;
+        /* Remove left border */
+        border-left: 7px solid transparent;
+        /* Right transparent */
+        &:after {
+          border-color: $c-blue transparent transparent transparent;
+        }
+      }
+    }
+
+    .rank-desktop {
+      background: $c-white;
+      color: $c-gray-dark;
+      height: 50px;
+      width: 45px;
+      padding-right: 5px;
+      display: none;
+      justify-content: center;
+      align-items: center;
+      position: absolute;
+      z-index: 10;
+      left: 0;
+      border-top-right-radius: 25px;
+      border-bottom-right-radius: 25px;
+      font-weight: 700;
+      font-size: 22px;
+      @include media-breakpoint-up(lg) {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+      }
+    }
+
+    &-logo-area {
+      background: $c-white;
+      width: fit-content;
+      padding: 15px 20px 0;
+      margin: 0 0 -20px;
+      position: relative;
+      top: -30px;
+      border-radius: 40px 40px 0 0;
+      display: flex;
+      flex-direction: row;
+      @include media-breakpoint-up(lg) {
+        margin: 0 10px;
+        width: calc(20% - 10px);
+        padding: 0;
+        position: unset;
+        top: unset;
+        border-radius: unset;
+        flex-direction: column;
+      }
+      height: 100%;
+      justify-content: center;
+      align-items: center;
+
+      .rank-mob {
+        font-size: 27px;
+        line-height: 1em;
+        font-weight: 700;
+        margin-right: 10px;
+        width: 50px;
+        height: 50px;
+        border-radius: 25px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: $c-primary;
+        background-color: $c-gray-light;
+        @include media-breakpoint-up(lg) {
+          display: none;
+        }
+      }
+
+      a:link {
+        width: fit-content;
+
+        .logo-co {
+          width: 100%;
+          max-height: 60px;
+          margin-bottom: -7px;
+          max-width: 170px;
+        }
+
+        &:hover {
+          .logo-co {
+            opacity: 0.7;
+          }
+        }
+      }
+    }
+
+    &-top {
+      .rank-desktop {
+        background: $c-warning;
+        color: $c-black;
+        height: 60px;
+        width: 55px;
+        border-top-right-radius: 30px;
+        border-bottom-right-radius: 30px;
+        font-size: 31px;
+
+        &:before {
+          content: '';
+          width: 13px;
+          height: 7px;
+          background-size: contain;
+          background-position: center;
+          background-repeat: no-repeat;
+          background-image: url("https://assets.topchats.com/images/icon-rank-crown.svg");
+        }
+      }
+
+      .rank-mob {
+        color: $c-black;
+        background-color: $c-warning;
+      }
+    }
+
+    &-description-area {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      margin-top: -30px;
+      padding: 20px 0;
+      @include media-breakpoint-up(lg) {
+        padding: unset;
+        margin-top: unset;
+        width: calc(35% - 10px);
+      }
+      max-width: fit-content;
+      height: 100%;
+
+      ul {
+        margin-left: 15px;
+        width: fit-content;
+        margin-bottom: 0;
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 20px;
+        @include media-breakpoint-up(lg) {
+          font-size: 12px;
+          line-height: 1.5em;
+        }
+        li {
+          color: #505050;
+          width: fit-content;
+          margin-bottom: 10px;
+          padding-left: 16px;
+          background-position: left 6px;
+          background-repeat: no-repeat;
+          background-image: url("https://assets.topchats.com/images/icon-description-check.svg");
+          max-width: 290px;
+          @include media-breakpoint-up(lg) {
+            margin-bottom: 3px;
+            background-position: left 5px;
+            min-width: 300px;
+            max-width: 100%;
+          }
+          &.description-fee {
+            background-image: url("https://assets.topchats.com/images/icon-description-money.svg");
+            background-position: left 2px;
+            margin-bottom: unset;
+            @include media-breakpoint-up(lg) {
+              background-position: left 0px;
+              margin-bottom: 8px;
+            }
+          }
+          &:last-child {
+            display: none;
+            @include media-breakpoint-up(lg) {
+              display: unset;
+            }
+          }
+          &:first-letter {
+            text-transform: uppercase;
+          }
+        }
+      }
+    }
+
+    &-cta-area {
+      width: 100%;
+      @include media-breakpoint-up(lg) {
+        width: calc(25% - 24px);
+      }
+      margin-left: 12px;
+      padding-right: 12px;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      .button {
+        font-weight: 300;
+        height: 50px;
+        width: fit-content;
+        min-width: unset;
+        max-width: 300px;
+        @include media-breakpoint-up(md) {
+          max-width: 200px;
+        }
+        @include media-breakpoint-up(xl) {
+          min-width: 235px;
+          max-width: 300px;
+        }
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin: 0 auto;
+
+        span {
+          width: 100%;
+          padding: 0 10px;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+      }
+
+      .read-review {
+        max-height: 20px;
+        color: $c-black;
+        text-decoration: underline;
+        margin: 15px auto 15px auto;
+        @include media-breakpoint-up(md) {
+          margin: 10px auto 0 auto;
+        }
+        &:hover {
+          color: $c-primary;
+        }
+      }
+    }
+  }
+}
+// Commons Listing Elements
+.rate-cont {
+  height: 14px;
+  line-height: 2em;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  width: fit-content;
+
+  img {
+    display: inline-block;
+    margin-top: 0;
+    margin-right: 5px;
+  }
+
+  span {
+    display: inline-block;
+    margin-top: 7px;
+    margin-bottom: 5px;
+    margin-left: 5px;
+    line-height: 1em;
+  }
+}
+
+.description-traffic {
+  font-size: 12px;
+  background-image: none !important;
+  margin-left: -18px;
+  margin-top: 4px;
+
+  &-mobile {
+    display: block;
+    @include media-breakpoint-up(lg) {
+      display: none;
+    }
+  }
+
+  span {
+    padding: 2px 7px;
+    border-radius: 10px;
+    border: 1px solid $c-black;
+
+    &:before {
+      display: inline-block;
+      width: 15px;
+      height: 18px;
+      margin-bottom: -4px;
+      margin-right: 5px;
+      background-position: left center;
+      background-repeat: no-repeat;
+      content: " ";
+    }
+  }
+
+  .description-traffic-performers {
+    margin-right: 5px;
+    border-color: #32FF7E;
+    color: $c-success;
+
+    &:before {
+      width: 10px;
+      background-size: auto;
+      background-image: url("https://assets.topchats.com/images/icon-description-live.svg");
+    }
+  }
+
+  .description-traffic-viewers {
+    border-color: #7EDDF2;
+    color: #5A86BF;
+
+    &:before {
+      background-size: contain;
+      background-image: url("https://assets.topchats.com/images/icon-description-eye.svg");
+    }
+  }
+}

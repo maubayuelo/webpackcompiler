@@ -1,0 +1,119 @@
+ /*# Tiny slider custom styles */
+.other-products {
+  .tns-controls {
+    text-align: right;
+    margin-bottom: 0;
+    margin-top: -($lh-base);
+
+    button {
+      background: transparent;
+      border: none;
+      text-indent: 200%;
+      white-space: nowrap;
+      overflow: hidden;
+      width: 20px;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: 80%;
+      opacity: 0.7;
+
+      &:hover {
+        opacity: 1;
+      }
+
+      &[disabled] {
+        opacity: 0.2;
+      }
+
+      &:first-child {
+        background-image: url("https://assets.topchats.com/images/icon-chevron-down.svg");
+        transform: rotate(90deg);
+      }
+
+      &:last-child {
+        background-size: 80%;
+        background-image: url("https://assets.topchats.com/images/icon-chevron-down.svg");
+        transform: rotate(270deg);
+      }
+    }
+  }
+
+  .tiny-slider {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    justify-content: center;
+    align-content: center;
+
+    .tns-item {
+      //object-fit: cover;
+    }
+
+    .slide-card {
+      background: $c-white;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.12);
+      border-radius: 4px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      align-content: stretch;
+      height: 100%;
+
+      .thumb-cont {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        align-content: center;
+        margin: 0 auto;
+        overflow: hidden;
+        width: 130px;
+        height: 130px;
+        border-radius: 50%;
+        background-color: $c-gray;
+        border: 7px solid $c-gray-light;
+        margin-bottom: 10px;
+        align-self: flex-start;
+
+        img {
+          object-fit: cover;
+          height: 100%;
+          max-height: 130px;
+          margin-bottom: -10px;
+        }
+      }
+
+      img.logo-co {
+        width: 100%;
+        min-width: 150px;
+        height: 50px;
+        background-position: center;
+        background-size: contain;
+        background-repeat: no-repeat;
+      }
+
+      .read-review {
+        font-size: 14px;
+      }
+
+      .button {
+        font-size: 12px;
+      }
+
+      a.read-review {
+        color: $c-black;
+        font-size: 12px;
+
+        &:link {
+          color: $c-black;
+          text-decoration: underline;
+        }
+
+        &:hover {
+          color: $c-primary;
+        }
+      }
+    }
+  }
+}

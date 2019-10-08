@@ -1,0 +1,435 @@
+.interline {
+  background-image: url("https://snag.gy/pOP8JF.jpg");
+}
+
+html {
+  scroll-behavior: smooth;
+  &.menu-mobile-expanded {
+    height: 100%;
+    overflow: hidden;
+  }
+}
+
+body {
+  padding-top: $lh-base*1.75;
+  @include media-breakpoint-up(lg) {
+    padding-top: 0;
+  }
+
+  &.menu-mobile-expanded {
+    overflow: hidden !important;
+    position: relative !important;
+    height: 100% !important;
+  }
+
+  &.sticky {
+    padding-top: 50px;
+  }
+}
+
+.main-nav {
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+  position: fixed;
+  @include media-breakpoint-up(lg) {
+    position: unset;
+  }
+
+  .container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    align-content: center;
+    height: $lh-base*1.75;
+    @include media-breakpoint-up(lg) {
+      padding: 0;
+      height: $lh-base*2.25;
+      justify-content: space-between;
+    }
+
+    .main-logo {
+      display: flex;
+      flex: 1;
+      width: fit-content;
+      height: fit-content;
+      max-width: fit-content;
+
+      img {
+        height: $lh-base;
+        @include media-breakpoint-up(lg) {
+          height: $lh-base*1.25;
+        }
+      }
+    }
+
+    ul.nav {
+      list-style-type: none;
+      margin: 0 0 0 20px;
+      padding: 0;
+      overflow: visible;
+      font-size: 14px;
+      text-transform: uppercase;
+      font-weight: 700;
+      height: 100%;
+      display: flex;
+
+      li {
+        float: left;
+        height: 100%;
+
+        a {
+          height: 100%;
+          min-height: 40px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          align-content: center;
+          color: $c-white;
+          text-align: center;
+          padding: 0 16px;
+          text-decoration: none;
+          transition: color ease-in 0.2s;
+          transition: background-color ease-in 0.2s;
+
+          &.nav-icon {
+            &:before {
+              margin-right: 5px;
+              display: block;
+              width: 15px;
+              height: 15px;
+              content: '';
+              background-size: contain;
+              background-repeat: no-repeat;
+              background-position: center;
+            }
+
+            &.nav-icon-girls:before {
+              background-image: url("https://assets.topchats.com/images/nav-icon-girls.svg");
+            }
+
+            &.nav-icon-men:before {
+              background-image: url("https://assets.topchats.com/images/nav-icon-men.svg");
+            }
+
+            &.nav-icon-for-her:before {
+              background-image: url("https://assets.topchats.com/images/nav-icon-gift.svg");
+            }
+
+            &.nav-icon-cam:before {
+              background-image: url("https://assets.topchats.com/images/nav-icon-cam.svg");
+            }
+          }
+
+          &.nav-icon-dropdown:after {
+            margin-left: 5px;
+            display: block;
+            width: 10px;
+            height: 10px;
+            content: '';
+            background-image: url("https://assets.topchats.com/images/nav-icon-chevron-down-white.svg");
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+          }
+
+          &.active,
+          &:hover:not(.active) {
+            background-color: #ff564c;
+            background-position: center 111%;
+            background-repeat: no-repeat;
+            background-size: 12px 12px;
+          }
+
+          &.active {
+            background-color: #FF756D;
+            background-image: url("https://assets.topchats.com/images/nav-arrow-up.svg");
+          }
+        }
+      }
+
+      li {
+        display: none;
+        @include media-breakpoint-up(lg) {
+          display: flex;
+        }
+      }
+
+      li:last-child {
+        display: flex;
+        @include media-breakpoint-up(lg) {
+          display: none;
+        }
+      }
+    }
+  }
+}
+// LANG SWITCHER
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+  position: relative;
+  display: inline-block;
+  height: 100%;
+  text-transform: uppercase;
+  /* Style The Dropdown Button */
+  .dropbtn {
+    color: white;
+    font-weight: $fw-bold;
+    font-size: 16px;
+    padding: 16px;
+    border: none;
+    cursor: pointer;
+    height: 100%;
+    text-transform: uppercase;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+
+    span {
+      display: none;
+      @include media-breakpoint-up(lg) {
+        display: flex;
+      }
+    }
+
+    &:after {
+      margin-left: 5px;
+      display: block;
+      width: 10px;
+      height: 10px;
+      content: '';
+      background-image: url("https://assets.topchats.com/images/nav-icon-chevron-down-white.svg");
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+  }
+  /* Change the background color of the dropdown button when the dropdown content is shown */
+  img.flag {
+    width: 13px;
+    margin-right: 5px;
+  }
+  /* Dropdown Content (Hidden by Default) */
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: $c-dark;
+    min-width: 100%;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    border-radius: 0 0 4px 4px;
+    z-index: 1;
+    overflow: hidden;
+    /* Links inside the dropdown */
+    a:link {
+      line-height: 3em;
+      padding: 10px 0;
+      color: $c-white !important;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+      font-weight: 300;
+    }
+
+    a:hover:not(.active) {
+      opacity: 1 !important;
+      background: $c-white !important;
+      color: $c-text !important;
+      font-weight: 300;
+    }
+  }
+
+  &:active,
+  &:focus,
+  &:hover {
+    /* Show the dropdown menu on hover */
+    .dropdown-content {
+      display: block;
+    }
+
+    .dropbtn {
+      transition: background-color ease-in 0.2s;
+      background-color: #ff564c;
+      background-image: url("https://assets.topchats.com/images/nav-arrow-up-grey.svg");
+      background-repeat: no-repeat;
+      background-size: 12px 12px;
+      background-position: center 115%;
+      @include media-breakpoint-up(lg) {
+        background-position: center 111%;
+      }
+    }
+  }
+}
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {
+  background-color: #f1f1f1;
+}
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+// SUB NAV
+
+.sub-nav {
+  // Stays sticky when user scrolls down
+  position: sticky;
+  top:0;
+  &.sticky {
+    li.logo-sub-nav{
+      transition: opacity ease-in 0.2s;
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+  min-height: $lh-base*1.75;
+  width: 100%;
+  background-color: $c-black;
+  color: $c-white;
+  display: none;
+  z-index: 100;
+  @include media-breakpoint-up(lg) {
+    display: flex;
+  }
+  //background-image: url(https://snag.gy/pOP8JF.jpg);
+  .container {
+    ul.nav {
+      width: 100%;
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      overflow: visible;
+      font-size: 14px;
+      height: 100%;
+      display: flex;
+      float: right;
+      justify-content: space-between;
+      li {
+        min-width: fit-content;
+        align-self: flex-end ;
+        float: left;
+        height: 100%;
+        color: $c-gray;
+        display: none;
+        @include media-breakpoint-up(lg) {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          align-content: center;
+        }
+        &:last-child {
+          display: flex;
+        }
+        a {
+          height: 100%;
+          min-height: 40px;
+          min-width: 20px;
+          width: fit-content;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          align-content: center;
+          text-align: center;
+          padding: 0 10px;
+          text-decoration: none;
+          transition: all ease-in 0.2s;
+          cursor: pointer;
+          //font-weight: 700;
+          &:link,
+          &:visited {
+            color: $c-white;
+          }
+
+          &:focus,
+          &:hover {
+            color: $c-primary;
+          }
+        }
+        &.active {
+          a:link,
+          a:visited {
+            cursor: default;
+            color: $c-primary;
+            margin-bottom: -10px;
+          }
+          &:after {
+            content: " ";
+            display: block;
+            width: calc(100% - 20px);
+            height: 5px;
+            background-color: $c-primary;
+            margin-top: 5px;
+          }
+        }
+      }
+      li.logo-sub-nav{
+        opacity: 0;
+        visibility: hidden;
+        a{
+          padding-left: 0;
+          img{
+            width: 35px;
+          }
+          &:hover{
+            opacity: 0.8;
+          }
+        }
+      }
+    }
+  }
+  &.sticky {
+    .container{
+      ul.nav{
+        li.logo-sub-nav{
+          opacity: 1;
+          visibility: visible;
+        }
+      }
+    }
+  }
+}
+// SEARCH BAR
+.icon-zoom {
+  cursor: pointer;
+  opacity: 1;
+  transition: opacity ease-in 0.2s;
+  width: 100%;
+  min-width: 20px;
+  &.icon-zoom-mobile {
+    padding-right: 18px;
+  }
+  &:hover {
+    opacity: 0.6;
+  }
+}
+.search_section {
+  height: 0;
+  overflow: hidden;
+  display: block;
+  transition: all ease-in 0.25s;
+  box-shadow: none;
+  &.expanded {
+    height: 70px;
+  }
+  .input {
+    border-right: none;
+    border-bottom-right-radius: unset !important;
+    border-top-right-radius: unset !important;
+
+    input {
+      color: $c-gray;
+      background-color: $c-white;
+      border-bottom-right-radius: unset !important;
+      border-top-right-radius: unset !important;;
+    }
+  }
+  &.sticky{
+    position: fixed;
+    top: 49px;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 0 5px rgba($c-black, 0.4);
+  }
+}
