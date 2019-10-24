@@ -1,6 +1,6 @@
 # Webpack Compiler Indications
 
-We are looking to create a frontEnd compiler system based on webpack and respecting an already determinated structure. 
+We are looking to create a frontEnd compiler system based on webpack and respecting an already determinated structure based on our CMS. 
 
 For this project we would like to respect the folder structure as they are on the BitBucked repository.
 [GitHub - maubayuelo/webpackcompiler](https://github.com/maubayuelo/webpackcompiler)
